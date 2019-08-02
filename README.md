@@ -1,33 +1,45 @@
-# KITTI Dataset Exploration
+(Please download this and open in text Editor, i don't know how to write spaces in 'How must dir with data look like' )
 
-## Dependencies
+### Next time I will check all unnecessary folders and delete them, sorry 
 
-Apart from the common dependencies like `numpy` and `matplotlib` notebook requires [`pykitti`](https://github.com/utiasSTARS/pykitti). You can install `pykitti` via pip using:
+## Install
+To install it you need:
+1) Default Kitti env
 
-```
-pip install pykitti
-```
+## Run
+To run it you need:
+Start kitti-dataset notebook until # save .txt
 
-## Project structure
+## How must dir with data look like
 
-| File                   | Description                                                                                      |
-| ---------------------- | ------------------------------------------------------------------------------------------------ |
-| `kitti-dataset.ipynb`  | Jupyter Notebook with dataset visualisation routines and output.                                 |
-| `parseTrackletXML.py`  | Methods for parsing tracklets (e.g. dataset labels), originally created by Christian Herdtweck.  |
-| `utilities.py`         | Convenient logging routines.                                                                     |
+data
+    2011_09_26
+	      calib_cam_to_cam.txt (must be here)
+              calib_imu_to_velo.txt (must be here)
+              calib_velo_to_cam.txt (must be here)
+              2011_09_26_drive_0001_sync
+                                        tracklet_labels.xml (must be here)
+                                        image_00
+						...
+                                        image_01
+						...
+                                        image_02
+						...
+                                        image_03
+						...
+                                        oxts (must be here)
+						...
+                                        velodyne_points (must be here)
+						...
+						       
 
-## Dataset
+there is other folders you don't need this. 
+## Default dir for new .txt labeles is 
+/KITTI-Dataset-master/result
 
-I have used one of the raw datasets available on [KITTI website](http://www.cvlibs.net/datasets/kitti/raw_data.php). See the first one in the list: [2011_09_26_drive_0001 (0.4 GB)](http://kitti.is.tue.mpg.de/kitti/raw_data/2011_09_26_drive_0001/2011_09_26_drive_0001_sync.zip).
+                                        
+## Visualize
+To visualize it run main.py there is open_and_visualize() function
+and save clouds and labels in XML_dataset folder
 
-* **Length**: 114 frames (00:11 minutes)
-* **Image resolution**: `1392 x 512` pixels
-* **Labels**: 12 Cars, 0 Vans, 0 Trucks, 0 Pedestrians, 0 Sitters, 2 Cyclists, 1 Trams, 0 Misc
 
-I mainly focused on point cloud data and plotting labeled tracklets for visualisation. Cars are marked in **blue**, trams in **red** and cyclists in **green**.
-
-<p align="center">
-  <img src="pcl_data.gif" alt="Point cloud data with labels"/>
-</p>
-
-For a more in-depth exploration and implementation details [see notebook](kitti-dataset.ipynb).
